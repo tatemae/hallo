@@ -38,6 +38,10 @@ task 'build', 'generate unified JavaScript file for whole Hallo', ->
     (sh "sed -ibak 's/{{ VERSION }}/#{version}/' '#{__dirname}/tmp/hallo.coffee'")
     (sh "./node_modules/.bin/coffee -o examples -j hallo.js -c `find tmp -type f -name '*.coffee'`")
     (sh "rm -r tmp")
+    (sh "rm hallo.js")
+    (sh "cat wrapper_start examples/hallo.js wrapper_end >> hallo.js")
+    (sh "rm ../ot-proxy/public/ot_js/vendor/hallo/hallo.js")
+    (sh "cp hallo.js ../ot-proxy/public/ot_js/vendor/hallo/hallo.js")
   ]
 
 task 'min', 'minify the generated JavaScript file', ->

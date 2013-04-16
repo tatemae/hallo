@@ -1,0 +1,10 @@
+define(['jquery',
+  'vendor/hallo/rangy-core',
+  'vendor/jqueryui/core',
+  'vendor/jqueryui/widget',
+  'vendor/jqueryui/button',
+  'vendor/jqueryui/dialog'],
+function(jQuery, rangy){
+  var $ = jQuery; // Some of the plugins us '$' instead of jQuery
+  rangy.init();
+  // Modified to work with require.js by Tatemae
