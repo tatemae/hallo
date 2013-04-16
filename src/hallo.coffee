@@ -291,6 +291,7 @@ http://hallojs.org
 
     _prepareToolbar: ->
       @toolbar = jQuery('<div class="hallotoolbar"></div>').hide()
+      @toolbar.attr('id', @options.toolbarId) if @options.toolbarId
       @toolbar.addClass @options.toolbarCssClass if @options.toolbarCssClass
 
       defaults =
