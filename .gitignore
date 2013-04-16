@@ -3,5 +3,6 @@ docs/
 node_modules/
 docs_tmp/
 _site/
+examples/hallo.js
 
 .DS_Store
