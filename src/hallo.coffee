@@ -157,7 +157,7 @@ http://hallojs.org
       jQuery(@element).removeClass 'isModified'
       jQuery(@element).removeClass 'inEditMode'
 
-      @element.parents('a').andSelf().each (idx, elem) =>
+      @element.parents('a').addBack().each (idx, elem) =>
         element = jQuery elem
         return unless element.is 'a'
         return unless @originalHref
@@ -167,7 +167,7 @@ http://hallojs.org
 
     # Enable an editable
     enable: ->
-      @element.parents('a[href]').andSelf().each (idx, elem) =>
+      @element.parents('a[href]').addBack().each (idx, elem) =>
         element = jQuery elem
         return unless element.is 'a[href]'
         @originalHref = element.attr 'href'
