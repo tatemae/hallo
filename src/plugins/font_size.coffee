@@ -7,6 +7,8 @@
       uuid: ''
       sizes: [8, 10, 12, 14, 16, 18, 24, 30, 36]
       buttonCssClass: null
+      label: 'Size'
+      is_text_button: true
 
     populateToolbar: (toolbar) ->
       widget = this
@@ -59,12 +61,15 @@
         contentArea.append addSize size
       contentArea
 
+
     _prepareButton: (target) ->
       buttonElement = jQuery '<span></span>'
       buttonElement.hallodropdownbutton
         uuid: @options.uuid
         editable: @options.editable
-        icon: 'icon-resize-vertical'
+        is_text_button: @options.is_text_button
+        icon: ''
+        label: @options.label
         target: target
         cssClass: @options.buttonCssClass
       buttonElement

@@ -11,7 +11,8 @@
       icon: null
       editable: null
       target: ''
-      cssClass: null
+      cssClass: null,
+      is_text_button: false
 
     _create: ->
       @options.icon ?= "icon-#{@options.label.toLowerCase()}"
@@ -43,7 +44,7 @@
       @_updateTargetPosition()
       target.addClass 'open'
       target.show()
-    
+
     _hideTarget: ->
       target = jQuery @options.target
       target.removeClass 'open'
@@ -65,9 +66,12 @@
         'ui-corner-all'
         'ui-button-text-only'
       ]
+
+      button_content = if @options.is_text_button then @options.label else "<i class=\"#{@options.icon}\"></i>"
+
       buttonEl = jQuery "<button id=\"#{id}\"
        class=\"#{classes.join(' ')}\" title=\"#{@options.label}\">
-       <span class=\"ui-button-text\"><i class=\"#{@options.icon}\"></i></span>
+       <span class=\"ui-button-text\">#{button_content}</span>
        </button>"
       buttonEl.addClass @options.cssClass if @options.cssClass
       buttonEl
